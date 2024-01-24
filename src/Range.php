@@ -587,7 +587,15 @@ class Range
         return !$this->isEmpty && $this->lower % 2 === 1 && $this->step % 2 === 0;
     }
 
-
+    /**
+     * @param int $n
+     * @return bool
+     */
+    public function allMultipleOf(int $n): bool
+    {
+        if ($this->isSingle()) return $this->lower % $n === 1;
+        return !$this->isEmpty && $this->lower % $n === 0 && $this->step % $n === 0;
+    }
 
     /**
      * Calculate the sum of all the values in the range.
