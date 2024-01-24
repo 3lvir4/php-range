@@ -44,8 +44,7 @@ class Range
     private static ?Range $emptyInstance = null;
 
     /**
-     * Range constructor.
-     * Step defaults to 1 if the lower bound is lees than or equal to the upper bound.
+     * Step defaults to 1 if the lower bound is less than or equal to the upper bound.
      * Otherwise, defaults to 1.
      *
      * @param int $lower The lower bound of the range.
