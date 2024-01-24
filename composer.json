@@ -1,7 +1,7 @@
 {
     "name": "3lvir4/php-range",
     "description": "Range object for easy range manipulation. Partially inspired by Elixir.",
-    "keywords": ["range"],
+    "keywords": ["range", "integers"],
     "homepage": "https://github.com/3lvir4/php-range",
     "type": "library",
     "license": "MIT",
