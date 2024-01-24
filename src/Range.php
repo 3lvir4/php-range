@@ -556,6 +556,7 @@ class Range
      */
     public function anyEven(): bool
     {
+        if ($this->isSingle()) return $this->lower % 2 === 0;
         return !$this->isEmpty && ($this->lower % 2 === 0 || $this->step % 2 === 1);
     }
 
@@ -564,6 +565,7 @@ class Range
      */
     public function anyOdd(): bool
     {
+        if ($this->isSingle()) return $this->lower % 2 === 1;
         return !$this->isEmpty && ($this->lower % 2 === 1 || $this->step % 2 === 1);
     }
 
@@ -572,6 +574,7 @@ class Range
      */
     public function allEven(): bool
     {
+        if ($this->isSingle()) return $this->lower % 2 === 0;
         return !$this->isEmpty && $this->lower % 2 === 0 && $this->step % 2 === 0;
     }
 
@@ -580,8 +583,10 @@ class Range
      */
     public function allOdd(): bool
     {
+        if ($this->isSingle()) return $this->lower % 2 === 1;
         return !$this->isEmpty && $this->lower % 2 === 1 && $this->step % 2 === 0;
     }
+
 
 
     /**
