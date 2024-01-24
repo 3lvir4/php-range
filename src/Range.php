@@ -580,8 +580,9 @@ class Range
      */
     public function allOdd(): bool
     {
-        return !$this->isEmpty && $this->lower % 2 === 1 && $this->step % 2 === 1;
+        return !$this->isEmpty && $this->lower % 2 === 1 && $this->step % 2 === 0;
     }
+
 
     /**
      * Calculate the sum of all the values in the range.
