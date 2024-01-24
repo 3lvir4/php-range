@@ -63,9 +63,7 @@ class Range
         $this->lower = $lower;
         $this->upper = $upper;
         $this->step = $step;
-        if (($lower > $upper && $step > 0) || ($lower < $upper && $step < 0)) {
-            $this->isEmpty = true;
-        }
+        $this->ensureIsEmptyConsistency();
     }
 
     /**
