@@ -1,0 +1,23 @@
+{
+    "name": "3lvir4/php-range",
+    "description": "Range object for easy range manipulation. Partially inspired by Elixir.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Elvir4\\PhpRange\\": "src/",
+            "Elvir4\\PhpRange\\Tests\\": "tests/"
+        },
+        "files": ["src/utils.php"]
+    },
+    "authors": [
+        {
+            "name": "3lvir4",
+            "email": "3lvir4.dev@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require-dev": {
+        "phpunit/phpunit": "^11.0@dev"
+    }
+}
