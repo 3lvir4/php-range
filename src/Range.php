@@ -664,7 +664,7 @@ class Range
      * Example:
      *   Range(1, 9, 2) equals to Range(1, 9, 2)
      *  **but** Range(1, 9, 2) not equals to Range(1, 10, 2)
-     *  despite the fact that they both yields 1, 3, 5, 7, and 9.
+     *  despite the fact that they both yield 1, 3, 5, 7, and 9.
      * @psalm-mutation-free
      * @param Range $other
      * @return bool
@@ -673,6 +673,23 @@ class Range
     {
         return $this->lower === $other->lower
             && $this->upper === $other->upper
+            && $this->step === $other->step;
+    }
+
+    /**
+     * Values equality check. Returns true if both ranges yields the same values in the same order.
+     * It is less strict compared to the **equalsTo** method because, for example, it considers
+     * that Range(1, 9, 2) and Range(1, 10, 2) are equal since they both yield 1, 3, 5, 7 and 9.
+     * @param Range $other
+     * @return bool
+     */
+    public function sameAs(Range $other): bool
+    {
+        if ($this->isEmpty) return $other->isEmpty;
+        if ($other->isEmpty) return $this->isEmpty;
+
+        return $this->lower === $other->lower
+            && $this->last() === $other->last()
             && $this->step === $other->step;
     }
 
