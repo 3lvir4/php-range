@@ -554,9 +554,25 @@ class Range
     /**
      * @return bool
      */
+    public function anyEven(): bool
+    {
+        return !$this->isEmpty && ($this->lower % 2 === 0 || $this->step % 2 === 1);
+    }
+
+    /**
+     * @return bool
+     */
+    public function anyOdd(): bool
+    {
+        return !$this->isEmpty && ($this->lower % 2 === 1 || $this->step % 2 === 1);
+    }
+
+    /**
+     * @return bool
+     */
     public function allEven(): bool
     {
-        return $this->lower % 2 === 0 && $this->step % 2 === 0;
+        return !$this->isEmpty && $this->lower % 2 === 0 && $this->step % 2 === 0;
     }
 
     /**
@@ -564,7 +580,7 @@ class Range
      */
     public function allOdd(): bool
     {
-        return $this->lower % 2 === 1 && $this->step % 2 === 1;
+        return !$this->isEmpty && $this->lower % 2 === 1 && $this->step % 2 === 1;
     }
 
     /**
