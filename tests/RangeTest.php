@@ -5,6 +5,7 @@ namespace Elvir4\PhpRange\Tests;
 use Elvir4\PhpRange\Range;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
+use function Elvir4\FunFp\Helpers\op;
 
 class RangeTest extends TestCase
 {

@@ -4,8 +4,14 @@ declare(strict_types=1);
 
 namespace Elvir4\PhpRange;
 
+use Elvir4\FunFp\Contracts\ProvidesIterOps;
+use Elvir4\FunFp\Iter;
+use Elvir4\FunFp\IterOps;
+use EmptyIterator;
 use Generator;
 use InvalidArgumentException;
+use IteratorAggregate;
+use Traversable;
 
 /**
  * Represents a numeric range with inclusive upper and lower bounds with a negative or positive step.
@@ -16,7 +22,7 @@ use InvalidArgumentException;
  * The behavior is *partially* inspired by Elixir ranges:
  * @link https://hexdocs.pm/elixir/1.15.7/Range.html Elixir v1.15.7 Range module documentation.
  */
-class Range
+class Range implements IteratorAggregate, ProvidesIterOps
 {
     /**
      * @var int The lower bound of the range.
@@ -788,5 +794,21 @@ class Range
         if (($this->lower > $this->upper && $this->step > 0) || ($this->lower < $this->upper && $this->step < 0)) {
             $this->isEmpty = true;
         }
+    }
+
+    /**
+     * @return Traversable<int, int>
+     */
+    public function getIterator(): Traversable
+    {
+        return $this->iter();
+    }
+
+    /**
+     * @return Traversable<int, int>&IterOps<int, int>
+     */
+    public function iter(): Traversable&IterOps
+    {
+        return new RangeIter($this->lower, $this->upper, $this->step);
     }
 }
