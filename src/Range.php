@@ -625,11 +625,11 @@ class Range implements IteratorAggregate, ProvidesIterOps
     {
         if ($this->step > 0) {
             for ($i = $this->lower; $i <= $this->upper; $i += $this->step) {
-                $acc = $f($i, $acc);
+                $acc = $f($acc, $i);
             }
         } else {
             for ($i = $this->lower; $i >= $this->upper; $i += $this->step) {
-                $acc = $f($i, $acc);
+                $acc = $f($acc, $i);
             }
         }
         return $acc;
