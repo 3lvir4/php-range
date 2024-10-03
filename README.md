@@ -1,4 +1,4 @@
-[![Latest Stable Version](https://poser.pugx.org/3lvir4/php-range/v/stable.png)](https://packagist.org/packages/3lvir4/php-range)
+[![Latest Stable Version](https://img.shields.io/packagist/v/3lvir4/php-range)](https://packagist.org/packages/3lvir4/php-range)
 [![CI Status](https://github.com/3lvir4/php-range/workflows/CI/badge.svg)](https://github.com/3lvir4/php-range/actions)
 
 # 3lvir4/php-range
