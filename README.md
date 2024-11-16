@@ -19,7 +19,3 @@ If you only need this library during development, then you should add it as a de
 ```
 composer require --dev 3lvir4/php-range
 ```
-
-## TODO (decisions needed)
-
-- [ ] Implement IteratorAggregate interface or add a custom Iterator.
